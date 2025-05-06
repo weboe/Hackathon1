@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.hackathon1.domain.Empresa;
+import org.example.hackathon1.domain.Rol;
 
 import java.util.List;
 
@@ -26,14 +27,14 @@ public class Usuario {
     private String email;
 
     @Enumerated(EnumType.STRING)
-    private Rol rol; // Rol del usuario (SPARKY_ADMIN, COMPANY_ADMIN, USER)
+    private Rol rol;
 
     @ManyToOne
-    private Empresa empresa; // Relación con la empresa a la que pertenece el usuario
+    private Empresa empresa;
 
-    //@OneToMany(mappedBy = "usuario")
-    //private List<LimiteUsuario> limites; // Límites específicos de usuario
+    @OneToMany(mappedBy = "usuario")
+    private List<LimiteUsuario> limites; // Límites específicos de usuario
 
-    //@OneToMany(mappedBy = "usuario")
-    //private List<Solicitud> solicitudes; // Historial de solicitudes de IA realizadas por el usuario
+    @OneToMany(mappedBy = "usuario")
+    private List<Solicitud> solicitudes; // Historial de solicitudes de IA realizadas por el usuario
 }
