@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.hackathon1.domain.Usuario;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -34,7 +35,7 @@ public class Empresa {
     @OneToOne
     private Usuario administrador;
 
-    @OneToMany(mappedBy = “usuarios empresa")
+    @OneToMany(mappedBy = "usuarios-empresa")
     private List<Usuario> usuarios;
 
 }

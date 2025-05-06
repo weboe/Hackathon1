@@ -1,9 +1,11 @@
 package com.sparky.entity;
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.hackathon1.domain.Empresa;
+import org.example.hackathon1.domain.ModeloIA;
+import org.example.hackathon1.domain.TLimite;
 
 import java.util.List;
 
@@ -22,7 +24,7 @@ public class Restriccion {
     private ModeloIA modelo;
 
     @Enumerated(EnumType.STRING)
-    private TipoLimite tipoLimite;
+    private TLimite tipoLimite;
 
     private int valorLimite;
     private int ventanaTiempoMinutos;
@@ -31,5 +33,5 @@ public class Restriccion {
     private Empresa empresa;
 
     @OneToMany(mappedBy = "restriccion")
-    private List<LimiteUsuario> limitesUsuario;
+    private List<TLimite> limitesUsuario;
 }
