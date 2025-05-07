@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.example.hackathon1.domain.Usuario;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -20,7 +19,7 @@ public class Empresa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "nombre", nullable = false)
     private String nombre;
 
     @Column(nullable = false, unique = true)
@@ -33,9 +32,19 @@ public class Empresa {
     private Boolean estadoActivo;
 
     @OneToOne
-    private Usuario administrador;
+    private User administrador;
 
-    @OneToMany(mappedBy = "usuarios-empresa")
-    private List<Usuario> usuarios;
+    @OneToMany(mappedBy = "usuarios_empresa")
+    private List<User> usuarios;
 
+    @OneToMany
+    private List<Restriccion> restricciones;
+
+    public boolean isEstadoActivo() {
+        return estadoActivo;
+    }
+
+    public void setEstadoActivo(boolean estadoActivo) {
+        this.estadoActivo = estadoActivo;
+    }
 }
