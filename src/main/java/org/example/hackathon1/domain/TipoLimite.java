@@ -1,5 +1,5 @@
 package org.example.hackathon1.domain;
 
-public enum TLimite {
+public enum TipoLimite {
     NUM_SOLICITUDES, TOKENS
 }
