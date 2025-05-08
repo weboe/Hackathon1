@@ -30,9 +30,21 @@ public class User {
     @JoinColumn(name = "empresa_id", nullable = false) // Establece la relación con la empresa
     private Empresa empresa;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     @OneToMany
     private List<LimiteUsuario> limites;
 
     @OneToMany
     private List<Solicitud> solicituds;
+
+    public User(Long userId) {
+    }
+
+    public void setUserId(Long userId) {
+        this.user = new User(userId);
+    }
+
 }

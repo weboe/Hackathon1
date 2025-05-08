@@ -29,7 +29,7 @@ public class LimiteUsuario {
     private int valorEspecifico;
 
     public void setUserId(Long userId) {
-        this.user = new User(userId);  // Usar este método solo si deseas establecer solo el ID
+        this.user = new User(userId);
     }
 
 }

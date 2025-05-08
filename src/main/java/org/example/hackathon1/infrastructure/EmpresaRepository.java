@@ -8,8 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface EmpresaRepository extends JpaRepository<Empresa, Long> {
-    // Custom query methods can be defined here if needed
-    // For example, to find by RUC:
     Optional<Empresa> findByRuc(String ruc);
     Optional<Empresa> findById(Long id);
     List<Empresa> findAll();
